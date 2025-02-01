@@ -110,7 +110,7 @@ class Map(pdk.Deck):
             vis_params (dict, optional): The visualization parameters. Defaults to {}.
             name (str, optional): The name of the layer. Defaults to 'Layer N'.
             shown (bool, optional): A flag indicating whether the layer should be on by default. Defaults to True.
-            opacity (float, optional): The layer's opacity represented as a number between 0 and 1. Defaults to 1.
+            opacity (float, optional): The layer's opacity represented as a number between 0 and 1.
         """
         import ee
         from box import Box
@@ -119,6 +119,8 @@ class Map(pdk.Deck):
 
         if vis_params is None:
             vis_params = {}
+        if opacity is not None:
+            vis_params['opacity'] = opacity
 
         if name is None:
             layer_count = len(self.layers)
